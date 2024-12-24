@@ -1,39 +1,400 @@
-/* fonts */
-@import url('fonts.css');
+/* font-family Ubuntu */
+@import url('../font/Ubuntu/stylesheet.css');
 
 /* variables */
 :root {
 
+    /* constants */
+
     /* colors */
+    /* cold */
+    --color-cold-lightest:  rgb(183 237 255);
+    --color-cold-lighter:   rgb(97 214 253);
+    --color-cold-light:     rgb(0 191 255);
+    --color-cold-medium:    rgb(0 0 255);
+    --color-cold-dark:      rgb(0 0 136);
+    --color-cold-darker:    rgb(0 0 56);
+    --color-cold-darkest:   rgb(0 0 28);
+    /* warm */
+    --color-warm-lightest:  rgb(255 231 186);
+    --color-warm-lighter:   rgb(255 219 153);
+    --color-warm-light:     rgb(255 190 71);
+    --color-warm-medium:    rgb(255 166 0);
+    --color-warm-dark:      rgb(255 140 0);
+    --color-warm-darker:    rgb(180 99 0);
+    --color-warm-darkest:   rgb(121 66 0);
+    /* warning */
+    --color-warning-lightest:   rgb(255 201 201);
+    --color-warning-lighter:    rgb(255 167 167);
+    --color-warning-light:      rgb(252 77 77);
+    --color-warning-medium:     rgb(255 0 0);
+    --color-warning-dark:       rgb(140 0 0);
+    --color-warning-darker:     rgb(70 0 0);
+    --color-warning-darkest:    rgb(35 0 0);
 
     /* font sizes */
+    --font-step:        4px;
+    --font-medium:      16px;
+    --font-small:       calc(var(--font-medium)     - var(--font-step));
+    --font-smaller:     calc(var(--font-small)      - var(--font-step));
+    --font-smallest:    calc(var(--font-smaller)    - var(--font-step));
+    --font-micro:       calc(var(--font-smallest)   - var(--font-step));
+    --font-big:         calc(var(--font-medium)     + var(--font-step));
+    --font-biger:       calc(var(--font-big)        + var(--font-step));
+    --font-bigest:      calc(var(--font-biger)      + 2 * var(--font-step));
+    --font-giant:       calc(var(--font-bigest)     + 4 * var(--font-step));
+
+    /* font weight */
+    --fw-light:     300;
+    --fw-normal:    400;
+    --fw-medium:    500;
+    --fw-bold:      700;
 
     /* gap sizes */
+    --gap-step:         5px;
+    --gap-micro:        5px;
+    --gap-smallest:     calc(var(--gap-micro)    + var(--gap-step));
+    --gap-smaller:      calc(var(--gap-smallest) + var(--gap-step));
+    --gap-small:        calc(var(--gap-smaller)  + var(--gap-step));
+    --gap-medium:       calc(var(--gap-small)    + var(--gap-step));
+    --gap-big:          calc(var(--gap-medium)   + 2 * var(--gap-step));
+    --gap-biger:        calc(var(--gap-big)      + 2 * var(--gap-step));
+    --gap-bigest:       calc(var(--gap-biger)    + 2 * var(--gap-step));
+    --gap-giant:        calc(var(--gap-biger)    + 4 * var(--gap-step));
+
+    /* viewport */
+    --viewport-monitor: 1920px;
+    --viewport-laptop:  1280px;
+    --viewport-tablet:  1080px;
+    --viewport-phone:   720px;
+
+    /* editable */
     
+    /* font */
+    --color:            var(--color-cold-dark);
+    --font-size:        var(--font-big);
+    --font-weight:      var(--fw-normal);
+    --font-family:      "Ubuntu", serif;
+    --font-style:       normal;
+    --letter-spacing:   2px;
+    --line-height:      1.5;
+
+    --bg-color:         transparent;
+    --shadow-color: var(--color-cold-lightest);
+    --outline-shadow-offsets: 0px 0px 5px 2px;
+    --btn-padding: var(--gap-smallest) var(--gap-medium);
+    --border: 2px solid var(--color);
+    --transition-duration: .1s;
+    --gap:              0;
+    --padding:          0;
+    --max-width:        1600px;
+    --min-width:        0; /* TMP */
 }
 
-/* defaults */
-* {
+/* utils */
+.visually-hidden {
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+}
+
+/* default */
+*, ::after, ::before {
+    padding: var(--padding);
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
+}
+*, ::after, ::before, ::selection, ::placeholder {
+    --FONT_FAMILY:      var(--font-family);
+    --FONT_WEIGHT:      var(--font-weight);
+    --FONT_STYLE:       var(--font-style);
+    --FONT_SIZE:        var(--font-size);
+    --LINE_HEIGHT:      var(--line-height);
+    --LETTER_SPACING:   var(--letter-spacing);
+    --COLOR:            var(--color);
+    --BG_COLOR:         var(--bg-color);
+
+    font-family:        var(--FONT_FAMILY);
+    font-style:         var(--FONT_STYLE);
+    color:              var(--COLOR);
+    font-size:          var(--FONT_SIZE);
+    font-weight:        var(--FONT_WEIGHT);
+    line-height:        var(--LINE_HEIGHT);
+    letter-spacing:     var(--LETTER_SPACING);
+    background-color:   var(--BG_COLOR);
+}
+::selection {
+    --COLOR:    var(--bg-color);
+    --BG_COLOR: var(--color);
+}
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+ul, ol {
+    list-style: none;
+}
+img {
+    display: block;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+a, button, input, textarea, select {
+    outline: none;
 }
 
 /* common items */
+.title, .btn {
+    --font-weight: var(--fw-medium);
+}
+
+.link, .btn {
+    transition-duration: var(--transition-duration);
+}
+.btn {
+    --font-size: var(--font-biger);
+    --padding: var(--btn-padding);
+    cursor: default;
+    user-select: none;
+    text-transform: capitalize;
+    text-align: center;
+    border: var(--border);
+    border-radius: var(--font-size);
+}
+.btn:focus {
+    box-shadow: var(--outline-shadow-offsets) var(--shadow-color);
+}
+@media (hover: hover) {
+    .btn:hover {
+        --BG_COLOR: var(--color);
+        --COLOR:    var(--bg-color);
+        box-shadow: none;
+    }
+    .link:hover {
+        --COLOR:    var(--color-cold-lightest);
+    }
+}
+.btn:active {
+    --BG_COLOR: var(--color);
+    --COLOR:    var(--bg-color);
+    transform: scale(0.95);
+}
+.link:active {
+    --COLOR:    var(--color-cold-darkest);
+}
+
+.toggle-btn {
+    /* можно переопределять извне */
+    --items: 2;
+    --font-size: var(--font-big);
+    --font-weight: var(--fw-medium);
+    --border-radius: var(--font-size);
+    --items-padding: var(--font-size) calc(2 * var(--font-size));
+    /* нельзя переопределять извне */
+    --gap: 0;
+    grid-template-columns: repeat(var(--items), auto);
+}
+.toggle-btn > .item {
+    --padding: var(--items-padding);
+    border: var(--border);
+    transition-duration: var(--transition-duration);
+    user-select: none;
+}
+.toggle-btn > .first {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+.toggle-btn > .last {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+.toggle-btn > .first ~ .item {
+    border-left: none;
+}
+.toggle-btn > .item:hover {
+    box-shadow: var(--outline-shadow-offsets) var(--shadow-color);
+}
+.toggle-btn > input:checked + .item {
+    --COLOR: var(--bg-color);
+    --BG_COLOR: var(--color);
+    box-shadow: none;
+}
+
+.form {
+    --field-bg-color: var(--color-cold-lighter);
+    --field-placeholder-color: var(--color-cold-lightest);
+    --shadow-color: var(--field-placeholder-color);
+}
+.form-label-required::after {
+    content: "*";
+}
+.form-field {
+    --bg-color: var(--field-bg-color);
+    --padding: var(--btn-padding);
+    outline: none;
+    border: none;
+    border-radius: var(--font-size);
+    transition-duration: var(--transition-duration);
+}
+.form-field::placeholder {
+    --COLOR: var(--field-placeholder-color);
+    --BG_COLOR: transparent;
+}
+.form-field:hover {
+    box-shadow: var(--outline-shadow-offsets) var(--shadow-color);
+}
+.form-field:focus {
+    --BG_COLOR: var(--field-placeholder-color);
+    box-shadow: none;
+}
+.form-field:focus::placeholder {
+    --COLOR: var(--field-bg-color);
+}
+.form-field:focus::selection {
+    --COLOR: var(--field-placeholder-color);
+}
 
 /* containers */
 
+[class$=container] {
+    gap: var(--gap);
+}
+
+.grid-container {
+    display: grid;
+    align-items: center;
+}
+
 /* ------------ */
+
+.body {
+    --bg-color: var(--color-cold-lightest);
+    min-height: 100%;
+}
+
+.body-wrapper {
+    --padding: var(--gap-giant);
+    --gap: var(--gap-bigest);
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+}
+
+[class|=main] {
+    --padding: var(--gap-bigest);
+    --bg-color: var(--color-cold-light);
+    border-radius: var(--padding);
+    box-shadow: var(--color-cold-lighter) 5px 5px 5px;
+}
 
 /* main header */
 
+.main-header {
+    grid-template-columns: auto 1fr auto;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.main-header > .logo {
+    --padding: 0;
+    fill:   var(--COLOR);
+    width:  calc(4 * var(--font-size));
+}
+
+.main-header > .nav {
+    --padding: 0;
+}
+
+.main-header .nav-list {
+    grid-template-columns: repeat(3, auto);
+}
+.main-header > .nav .link {
+    --font-size:    var(--font-biger);
+    --font-weight:  var(--fw-medium);
+    text-transform: uppercase;
+}
+.main-header > .nav .link.checked {
+    --COLOR: var(--color);
+    text-decoration: underline;
+}
+
 /* main */
+
+.profile {
+    --padding: 0;
+    --gap: var(--gap-biger);
+    align-content: start;
+}
+.profile-header > .title {
+    --font-size: var(--font-bigest);
+    text-align: center;
+}
+.profile-info {
+    --gap: var(--gap-big);
+    --font-size: var(--font-big);
+    grid-template-columns: repeat(2, 350px);
+    justify-content: center;
+}
 
 /* main footer */
 
+.main-footer {
+    --font-size: var(--font-medium);
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    /* justify-items: center; */
+}
+
+.site-theme {
+    --padding: 0;
+    --gap: var(--gap-smaller);
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+.site-theme .title {
+    --font-weight: var(--fw-normal);
+}
+.site-theme .toggle-btn {
+    --font-size: var(--font-medium);
+    --items-padding: calc(var(--font-size) / 3) var(--font-size);
+}
+
+.copyright {
+    --padding: 0;
+}
+
+.references {
+    --padding: 0;
+    --gap: var(--gap-smaller);
+}
+.references .ref-list {
+    --gap: var(--gap-big);
+    grid-template-columns: auto auto;
+}
+.references .link {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-micro);
+    fill: var(--COLOR);
+}
+.references .icon {
+    width: calc(1.5 * var(--font-size));
+    height: calc(1.5 * var(--font-size));
+}
+
 /* ------------ */
 
-/* notebooks */
+/* laptops */
 
 /* tablets */
 
