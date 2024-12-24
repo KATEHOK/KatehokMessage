@@ -5,6 +5,31 @@
 :root {
 
     /* colors */
+    --color-alpha: 1;
+    --color-lightest: rgb(255, 255, 255, var(--color-alpha));
+    --color-darkest: rgba(0, 0, 0, var(--color-alpha));
+    /* cold */
+    --color-cold-lighter: rgba(183, 237, 255, var(--color-alpha));
+    --color-cold-light: rgba(0, 191, 255, var(--color-alpha));
+    --color-cold-medium: rgba(0, 0, 255, var(--color-alpha));
+    --color-cold-dark: rgba(0, 0, 136, var(--color-alpha));
+    --color-cold-darker: rgba(0, 0, 56, var(--color-alpha));
+    /* warm */
+    --color-warm-lighter: rgba(255, 219, 153, var(--color-alpha));
+    --color-warm-light: rgba(255, 190, 71, var(--color-alpha));
+    --color-warm-medium: rgba(255, 166, 0, var(--color-alpha));
+    --color-warm-dark: rgba(255, 140, 0, var(--color-alpha));
+    --color-warm-darker: rgba(180, 99, 0, var(--color-alpha));
+    /* warning */
+    --color-warning-lighter: rgba(255, 167, 167, var(--color-alpha));
+    --color-warning-light: rgba(252, 77, 77, var(--color-alpha));
+    --color-warning-medium: rgba(255, 0, 0, var(--color-alpha));
+    --color-warning-dark: rgba(139, 0, 0, var(--color-alpha));
+    --color-warning-darker: rgba(70, 0, 0, var(--color-alpha));
+    /* properties */
+    --bg-color: var(--color-lightest);
+    --color: var(--color-darkest);
+    --border-color: var(--color-darkest);
 
     /* font sizes */
 
@@ -17,6 +42,82 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+[class|=item] {
+    padding: 30px;
+    font-size: 50px;
+    color: var(--color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+}
+[class$="1"] {
+    --color: var(--color-darkest);
+    --bg-color: var(--color-lightest);
+}
+[class$="2"] {
+    --color: var(--color-lightest);
+    --bg-color: var(--color-darkest);
+}
+[class$="3"] {
+    --color: var(--color-cold-medium);
+    --bg-color: var(--color-cold-lighter);
+}
+[class$="4"] {
+    --color: var(--color-cold-dark);
+    --bg-color: var(--color-cold-light);
+}
+[class$="5"] {
+    --color: var(--color-cold-darker);
+    --bg-color: var(--color-cold-medium);
+}
+[class$="6"] {
+    --color: var(--color-cold-light);
+    --bg-color: var(--color-cold-dark);
+}
+[class$="7"] {
+    --color: var(--color-cold-lighter);
+    --bg-color: var(--color-cold-darker);
+}
+[class$="8"] {
+    --color: var(--color-warm-medium);
+    --bg-color: var(--color-warm-lighter);
+}
+[class$="9"] {
+    --color: var(--color-warm-dark);
+    --bg-color: var(--color-warm-light);
+}
+[class$="10"] {
+    --color: var(--color-warm-darker);
+    --bg-color: var(--color-warm-medium);
+}
+[class$="11"] {
+    --color: var(--color-warm-light);
+    --bg-color: var(--color-warm-dark);
+}
+[class$="12"] {
+    --color: var(--color-warm-lighter);
+    --bg-color: var(--color-warm-darker);
+}
+[class$="13"] {
+    --color: var(--color-warning-medium);
+    --bg-color: var(--color-warning-lighter);
+}
+[class$="14"] {
+    --color: var(--color-warning-dark);
+    --bg-color: var(--color-warning-light);
+}
+[class$="15"] {
+    --color: var(--color-warning-darker);
+    --bg-color: var(--color-warning-medium);
+}
+[class$="16"] {
+    --color: var(--color-warning-light);
+    --bg-color: var(--color-warning-dark);
+}
+[class$="17"] {
+    --color: var(--color-warning-lighter);
+    --bg-color: var(--color-warning-darker);
 }
 
 /* common items */
