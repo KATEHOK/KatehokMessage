@@ -5,6 +5,31 @@
 :root {
 
     /* colors */
+    --color-alpha: 1;
+    --color-lightest: rgb(255, 255, 255, var(--color-alpha));
+    --color-darkest: rgba(0, 0, 0, var(--color-alpha));
+    /* cold */
+    --color-cold-lighter: rgba(183, 237, 255, var(--color-alpha));
+    --color-cold-light: rgba(0, 191, 255, var(--color-alpha));
+    --color-cold-medium: rgba(0, 0, 255, var(--color-alpha));
+    --color-cold-dark: rgba(0, 0, 136, var(--color-alpha));
+    --color-cold-darker: rgba(0, 0, 56, var(--color-alpha));
+    /* warm */
+    --color-warm-lighter: rgba(255, 219, 153, var(--color-alpha));
+    --color-warm-light: rgba(255, 190, 71, var(--color-alpha));
+    --color-warm-medium: rgba(255, 166, 0, var(--color-alpha));
+    --color-warm-dark: rgba(255, 140, 0, var(--color-alpha));
+    --color-warm-darker: rgba(180, 99, 0, var(--color-alpha));
+    /* warning */
+    --color-warning-lighter: rgba(255, 167, 167, var(--color-alpha));
+    --color-warning-light: rgba(252, 77, 77, var(--color-alpha));
+    --color-warning-medium: rgba(255, 0, 0, var(--color-alpha));
+    --color-warning-dark: rgba(139, 0, 0, var(--color-alpha));
+    --color-warning-darker: rgba(70, 0, 0, var(--color-alpha));
+    /* properties */
+    --bg-color: var(--color-lightest);
+    --color: var(--color-darkest);
+    --border-color: var(--color-darkest);
 
     /* font sizes */
 
