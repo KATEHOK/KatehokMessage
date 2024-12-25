@@ -1,46 +1,85 @@
 /* fonts */
 @import url('fonts.css');
 
+/* html {
+    --color-alpha: 1;
+} */
+
 /* variables */
 :root {
 
     /* colors */
-    --color-alpha: 1;
-    --color-lightest: rgb(255, 255, 255, var(--color-alpha));
-    --color-darkest: rgba(0, 0, 0, var(--color-alpha));
+    --color-white:  rgb(255, 255, 255);
+    --color-black:  rgb(0, 0, 0);
     /* cold */
-    --color-cold-lighter: rgba(183, 237, 255, var(--color-alpha));
-    --color-cold-light: rgba(0, 191, 255, var(--color-alpha));
-    --color-cold-medium: rgba(0, 0, 255, var(--color-alpha));
-    --color-cold-dark: rgba(0, 0, 136, var(--color-alpha));
-    --color-cold-darker: rgba(0, 0, 56, var(--color-alpha));
+    --color-cold-lightest:  rgb(183, 237, 255);
+    --color-cold-lighter:   rgb(97, 214, 253);
+    --color-cold-light:     rgb(0, 191, 255);
+    --color-cold-medium:    rgb(0, 0, 255);
+    --color-cold-dark:      rgb(0, 0, 136);
+    --color-cold-darker:    rgb(0, 0, 56);
+    --color-cold-darkest:   rgb(0, 0, 28);
     /* warm */
-    --color-warm-lighter: rgba(255, 219, 153, var(--color-alpha));
-    --color-warm-light: rgba(255, 190, 71, var(--color-alpha));
-    --color-warm-medium: rgba(255, 166, 0, var(--color-alpha));
-    --color-warm-dark: rgba(255, 140, 0, var(--color-alpha));
-    --color-warm-darker: rgba(180, 99, 0, var(--color-alpha));
+    --color-warm-lightest:  rgb(255, 231, 186);
+    --color-warm-lighter:   rgb(255, 219, 153);
+    --color-warm-light:     rgb(255, 190, 71);
+    --color-warm-medium:    rgb(255, 166, 0);
+    --color-warm-dark:      rgb(255, 140, 0);
+    --color-warm-darker:    rgb(180, 99, 0);
+    --color-warm-darkest:   rgb(121, 66, 0);
     /* warning */
-    --color-warning-lighter: rgba(255, 167, 167, var(--color-alpha));
-    --color-warning-light: rgba(252, 77, 77, var(--color-alpha));
-    --color-warning-medium: rgba(255, 0, 0, var(--color-alpha));
-    --color-warning-dark: rgba(139, 0, 0, var(--color-alpha));
-    --color-warning-darker: rgba(70, 0, 0, var(--color-alpha));
+    --color-warning-lightest:   rgb(255, 201, 201);
+    --color-warning-lighter:    rgb(255, 167, 167);
+    --color-warning-light:      rgb(252, 77, 77);
+    --color-warning-medium:     rgb(255, 0, 0);
+    --color-warning-dark:       rgb(140, 0, 0);
+    --color-warning-darker:     rgb(70, 0, 0);
+    --color-warning-darkest:    rgb(35, 0, 0);
     /* properties */
-    --bg-color: var(--color-lightest);
-    --color: var(--color-darkest);
-    --border-color: var(--color-darkest);
+    --bg-color:     transparent;
+    --color:        var(--color-black);
+    --border-color: var(--color-black);
 
     /* font sizes */
+    --font-step:    4px;
+    --font-medium:  16px;
+    --font-smaller:     calc(var(--font-medium)     - var(--font-step));
+    --font-smallest:    calc(var(--font-smaller)    - var(--font-step));
+    --font-micro:       calc(var(--font-smallest)   - var(--font-step));
+    --font-biger:       calc(var(--font-medium)     + var(--font-step));
+    --font-bigest:      calc(var(--font-biger)      + var(--font-step));
+    --font-giant:       calc(var(--font-bigest)     + var(--font-step));
+    /* properties */
+    --font-size: var(--font-medium);
 
-    /* gap sizes */
+    /* gap & padding & margin */
+    --gap-step:     5px;
+    --gap-micro:    5px;
+    --gap-smallest:    calc(var(--gap-micro)    + var(--gap-step));
+    --gap-smaller:     calc(var(--gap-smallest) + var(--gap-step));
+    --gap-medium:      calc(var(--gap-smaller)  + var(--gap-step));
+    --gap-biger:       calc(var(--gap-medium)   + 2 * var(--gap-step));
+    --gap-bigest:      calc(var(--gap-biger)    + 2 * var(--gap-step));
+    --gap-giant:       calc(var(--gap-biger)    + 4 * var(--gap-step));
+    /* properties */
+    --gap:      0;
+    --padding:  0;
+
+    /* viewport */
+    --viewport-monitor: 1920px;
+    --viewport-laptop:  1280px;
+    --viewport-tablet:  1080px;
+    --viewport-phone:   720px;
+    /* properties */
+    --max-width: 1600px;
+    --min-width: 0; /* TMP */
     
 }
 
 /* defaults */
 * {
+    padding: var(--padding);
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -48,7 +87,37 @@
 
 /* containers */
 
+[class$=container] {
+    gap: var(--gap);
+    border-radius: var(--padding);
+}
+
+[class$=grid-container] {
+    display: grid;
+}
+
 /* ------------ */
+
+body {
+    background-color: var(--color-cold-lightest);
+}
+
+[class|=body] {
+    --padding: var(--gap-giant);
+    --gap: var(--gap-bigest);
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    max-width: var(--max-width);
+    min-width: var(--min-width);
+}
+
+[class|=main] {
+    --padding: var(--gap-bigest);
+    background-color: var(--color-cold-light);
+    box-shadow: var(--color-cold-lighter) 5px 5px 5px;
+}
 
 /* main header */
 
