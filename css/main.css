@@ -1,5 +1,5 @@
-/* fonts */
-@import url('fonts.css');
+/* font-family Ubuntu */
+@import url('../font/Ubuntu/stylesheet.css');
 
 /* variables */
 :root {
@@ -65,6 +65,7 @@
     --color:            var(--color-cold-dark);
     --font-size:        var(--font-medium);
     --letter-spacing:   2px;
+    --line-height:      1.5;
     --gap:              0;
     --padding:          0;
     --max-width:        1600px;
@@ -72,18 +73,33 @@
 }
 
 /* default */
-* {
+*, *::after, *::before {
     padding: var(--padding);
     margin: 0;
     box-sizing: border-box;
 }
-/* inhetiable */
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+ul, ol {
+    list-style: none;
+}
+img {
+    display: block;
+    width: 100%;
+}
+input, textarea, select, button {
+    font: inherit;
+}
+/* inhetiable font styles */
 body {
     font-family:    "Ubuntu", serif;
     font-weight:    400;
     font-style:     normal;
     color:          var(--color);
     font-size:      var(--font-size);
+    line-height:    var(--line-height);
     letter-spacing: var(--letter-spacing);
 }
 
@@ -104,6 +120,7 @@ body {
 
 body {
     background-color: var(--color-cold-lightest);
+    min-height: 100%;
 }
 
 [class|=body] {
