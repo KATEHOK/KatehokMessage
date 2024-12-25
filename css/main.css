@@ -1,12 +1,10 @@
 /* fonts */
 @import url('fonts.css');
 
-/* html {
-    --color-alpha: 1;
-} */
-
 /* variables */
 :root {
+
+    /* constants */
 
     /* colors */
     --color-white:  rgb(255, 255, 255);
@@ -35,52 +33,58 @@
     --color-warning-dark:       rgb(140, 0, 0);
     --color-warning-darker:     rgb(70, 0, 0);
     --color-warning-darkest:    rgb(35, 0, 0);
-    /* properties */
-    --bg-color:     transparent;
-    --color:        var(--color-black);
-    --border-color: var(--color-black);
 
     /* font sizes */
-    --font-step:    4px;
-    --font-medium:  16px;
+    --font-step:        4px;
+    --font-medium:      16px;
     --font-smaller:     calc(var(--font-medium)     - var(--font-step));
     --font-smallest:    calc(var(--font-smaller)    - var(--font-step));
     --font-micro:       calc(var(--font-smallest)   - var(--font-step));
     --font-biger:       calc(var(--font-medium)     + var(--font-step));
     --font-bigest:      calc(var(--font-biger)      + var(--font-step));
     --font-giant:       calc(var(--font-bigest)     + var(--font-step));
-    /* properties */
-    --font-size: var(--font-medium);
 
-    /* gap & padding & margin */
-    --gap-step:     5px;
-    --gap-micro:    5px;
-    --gap-smallest:    calc(var(--gap-micro)    + var(--gap-step));
-    --gap-smaller:     calc(var(--gap-smallest) + var(--gap-step));
-    --gap-medium:      calc(var(--gap-smaller)  + var(--gap-step));
-    --gap-biger:       calc(var(--gap-medium)   + 2 * var(--gap-step));
-    --gap-bigest:      calc(var(--gap-biger)    + 2 * var(--gap-step));
-    --gap-giant:       calc(var(--gap-biger)    + 4 * var(--gap-step));
-    /* properties */
-    --gap:      0;
-    --padding:  0;
+    /* gap sizes */
+    --gap-step:         5px;
+    --gap-micro:        5px;
+    --gap-smallest:     calc(var(--gap-micro)    + var(--gap-step));
+    --gap-smaller:      calc(var(--gap-smallest) + var(--gap-step));
+    --gap-medium:       calc(var(--gap-smaller)  + var(--gap-step));
+    --gap-biger:        calc(var(--gap-medium)   + 2 * var(--gap-step));
+    --gap-bigest:       calc(var(--gap-biger)    + 2 * var(--gap-step));
+    --gap-giant:        calc(var(--gap-biger)    + 4 * var(--gap-step));
 
     /* viewport */
     --viewport-monitor: 1920px;
     --viewport-laptop:  1280px;
     --viewport-tablet:  1080px;
     --viewport-phone:   720px;
-    /* properties */
-    --max-width: 1600px;
-    --min-width: 0; /* TMP */
+
+    /* editable */
     
+    --color:            var(--color-cold-dark);
+    --font-size:        var(--font-medium);
+    --letter-spacing:   2px;
+    --gap:              0;
+    --padding:          0;
+    --max-width:        1600px;
+    --min-width:        0; /* TMP */
 }
 
-/* defaults */
+/* default */
 * {
     padding: var(--padding);
     margin: 0;
     box-sizing: border-box;
+}
+/* inhetiable */
+body {
+    font-family:    "Ubuntu", serif;
+    font-weight:    400;
+    font-style:     normal;
+    color:          var(--color);
+    font-size:      var(--font-size);
+    letter-spacing: var(--letter-spacing);
 }
 
 /* common items */
