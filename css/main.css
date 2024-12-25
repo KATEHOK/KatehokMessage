@@ -7,32 +7,32 @@
     /* constants */
 
     /* colors */
-    --color-white:  rgb(255, 255, 255);
-    --color-black:  rgb(0, 0, 0);
+    --color-white:  rgb(255 255 255);
+    --color-black:  rgb(0 0 0);
     /* cold */
-    --color-cold-lightest:  rgb(183, 237, 255);
-    --color-cold-lighter:   rgb(97, 214, 253);
-    --color-cold-light:     rgb(0, 191, 255);
-    --color-cold-medium:    rgb(0, 0, 255);
-    --color-cold-dark:      rgb(0, 0, 136);
-    --color-cold-darker:    rgb(0, 0, 56);
-    --color-cold-darkest:   rgb(0, 0, 28);
+    --color-cold-lightest:  rgb(183 237 255);
+    --color-cold-lighter:   rgb(97 214 253);
+    --color-cold-light:     rgb(0 191 255);
+    --color-cold-medium:    rgb(0 0 255);
+    --color-cold-dark:      rgb(0 0 136);
+    --color-cold-darker:    rgb(0 0 56);
+    --color-cold-darkest:   rgb(0 0 28);
     /* warm */
-    --color-warm-lightest:  rgb(255, 231, 186);
-    --color-warm-lighter:   rgb(255, 219, 153);
-    --color-warm-light:     rgb(255, 190, 71);
-    --color-warm-medium:    rgb(255, 166, 0);
-    --color-warm-dark:      rgb(255, 140, 0);
-    --color-warm-darker:    rgb(180, 99, 0);
-    --color-warm-darkest:   rgb(121, 66, 0);
+    --color-warm-lightest:  rgb(255 231 186);
+    --color-warm-lighter:   rgb(255 219 153);
+    --color-warm-light:     rgb(255 190 71);
+    --color-warm-medium:    rgb(255 166 0);
+    --color-warm-dark:      rgb(255 140 0);
+    --color-warm-darker:    rgb(180 99 0);
+    --color-warm-darkest:   rgb(121 66 0);
     /* warning */
-    --color-warning-lightest:   rgb(255, 201, 201);
-    --color-warning-lighter:    rgb(255, 167, 167);
-    --color-warning-light:      rgb(252, 77, 77);
-    --color-warning-medium:     rgb(255, 0, 0);
-    --color-warning-dark:       rgb(140, 0, 0);
-    --color-warning-darker:     rgb(70, 0, 0);
-    --color-warning-darkest:    rgb(35, 0, 0);
+    --color-warning-lightest:   rgb(255 201 201);
+    --color-warning-lighter:    rgb(255 167 167);
+    --color-warning-light:      rgb(252 77 77);
+    --color-warning-medium:     rgb(255 0 0);
+    --color-warning-dark:       rgb(140 0 0);
+    --color-warning-darker:     rgb(70 0 0);
+    --color-warning-darkest:    rgb(35 0 0);
 
     /* font sizes */
     --font-step:        4px;
@@ -104,6 +104,14 @@ body {
 }
 
 /* common items */
+
+[class*=btn] {
+    cursor: default;
+    user-select: none;
+}
+@media (hover: hover) {
+    [class*=btn]:hover {}
+}
 
 /* containers */
 
