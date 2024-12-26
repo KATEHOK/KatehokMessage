@@ -7,8 +7,6 @@
     /* constants */
 
     /* colors */
-    --color-white:  rgb(255 255 255);
-    --color-black:  rgb(0 0 0);
     /* cold */
     --color-cold-lightest:  rgb(183 237 255);
     --color-cold-lighter:   rgb(97 214 253);
@@ -46,6 +44,12 @@
     --font-bigest:      calc(var(--font-biger)      + 2 * var(--font-step));
     --font-giant:       calc(var(--font-bigest)     + 4 * var(--font-step));
 
+    /* font weight */
+    --fw-light:     300;
+    --fw-normal:    400;
+    --fw-medium:    500;
+    --fw-bold:      700;
+
     /* gap sizes */
     --gap-step:         5px;
     --gap-micro:        5px;
@@ -66,13 +70,19 @@
 
     /* editable */
     
+    /* font */
+    --color:            var(--color-cold-dark);
+    --font-size:        var(--font-big);
+    --font-weight:      var(--fw-normal);
+    --font-family:      "Ubuntu", serif;
+    --font-style:       normal;
+    --letter-spacing:   2px;
+    --line-height:      1.5;
+
+    --bg-color:         transparent;
     --btn-padding: var(--gap-smallest) var(--gap-medium);
     --border: 2px solid var(--color);
     --transition-duration: .1s;
-    --color:            var(--color-cold-dark);
-    --font-size:        var(--font-medium);
-    --letter-spacing:   2px;
-    --line-height:      1.5;
     --gap:              0;
     --padding:          0;
     --max-width:        1600px;
@@ -94,10 +104,33 @@
 }
 
 /* default */
-*, *::after, *::before {
+*, ::after, ::before {
     padding: var(--padding);
     margin: 0;
     box-sizing: border-box;
+}
+*, ::after, ::before, ::selection, ::placeholder {    
+    --FONT_FAMILY:      var(--font-family);
+    --FONT_WEIGHT:      var(--font-weight);
+    --FONT_STYLE:       var(--font-style);
+    --FONT_SIZE:        var(--font-size);
+    --LINE_HEIGHT:      var(--line-height);
+    --LETTER_SPACING:   var(--letter-spacing);
+    --BG_COLOR:         var(--bg-color);
+    --COLOR:            var(--color);
+
+    font-family:        var(--FONT_FAMILY);
+    font-style:         var(--FONT_STYLE);
+    color:              var(--COLOR);
+    font-size:          var(--FONT_SIZE);
+    font-weight:        var(--FONT_WEIGHT);
+    line-height:        var(--LINE_HEIGHT);
+    letter-spacing:     var(--LETTER_SPACING);
+    background-color:   var(--BG_COLOR);
+}
+::selection {
+    --COLOR:    var(--bg-color);
+    --BG_COLOR: var(--color);
 }
 html {
     height: 100%;
@@ -110,73 +143,77 @@ img {
     display: block;
     width: 100%;
 }
-input, textarea, select, button, a {
-    font: inherit;
-    color: inherit;
-}
 a {
     text-decoration: none;
 }
 a, button, input, textarea {
     outline: none;
 }
-h1, h2, h3, h4, h5, h6, p, a, label, input, button, ::placeholder, body {
-    font-family:    "Ubuntu", serif;
-    font-weight:    400;
-    font-style:     normal;
-    color:          var(--color);
-    font-size:      var(--font-size);
-    line-height:    var(--line-height);
-    letter-spacing: var(--letter-spacing);
-}
-::selection {
-    color: var(--color-cold-light);
-    background-color: var(--color);
-}
 
 /* common items */
-[class*=link], [class*=btn] {
-    --COLOR: var(--color);
-    color: var(--COLOR);
-    font-size: var(--font-size);
-    transition-duration: var(--transition-duration);
-}
-[class*=btn] {
-    --font-size: var(--font-biger);
-    --BORDER: var(--border);
-    --BG_COLOR: transparent;
-    cursor: default;
-    user-select: none;
-    font-weight: 500;
-    border: var(--BORDER);
-    padding: var(--btn-padding);
-    border-radius: var(--font-size);
-    background-color: var(--BG_COLOR);
-    text-transform: capitalize;
-    user-select: none;
-}
-@media (hover: hover) {
-    [class*=btn]:hover, [class*=btn]:focus {
-        --BG_COLOR: var(--color);
-        --COLOR: var(--color-cold-light);
-    }
-    [class*=link]:hover, [class*=link]:focus {
-        --COLOR: var(--color-cold-medium);
-        text-decoration: underline;
-    }
-}
-[class*=btn]:active {
-    --BG_COLOR: var(--color);
-    --COLOR: var(--color-cold-light);
-    transform: scale(0.95);
-}
-[class*=link]:active {
-    --COLOR: var(--color-cold-darker);
-    text-decoration: none;
+.title, .btn {
+    --font-weight: var(--fw-medium);
 }
 
-[class*=title] {
-    font-weight: 500;
+.link, .btn {
+    transition-duration: var(--transition-duration);
+}
+.btn {
+    --font-size: var(--font-biger);
+    cursor: default;
+    user-select: none;
+    text-transform: capitalize;
+    text-align: center;
+    border: var(--border);
+    padding: var(--btn-padding);
+    border-radius: var(--font-size);
+}
+@media (hover: hover) {
+    .btn:hover {
+        --BG_COLOR: var(--color);
+        --COLOR:    var(--bg-color);
+    }
+    .link:hover {
+        --COLOR:    var(--color-cold-lightest);
+    }
+}
+.btn:active {
+    --BG_COLOR: var(--color);
+    --COLOR:    var(--bg-color);
+    transform: scale(0.95);
+}
+.link:active {
+    --COLOR:    var(--color-cold-darkest);
+}
+
+.form {
+    --field-bg-color: var(--color-cold-lighter);
+    --field-placeholder-color: var(--color-cold-lightest);
+}
+.form-field {
+    --bg-color: var(--field-bg-color);
+    --padding: var(--btn-padding);
+    outline: none;
+    border: none;
+    border-radius: var(--font-size);
+    transition-duration: var(--transition-duration);
+}
+.form-field::placeholder {
+    --COLOR: var(--field-placeholder-color);
+    --BG_COLOR: transparent;
+}
+.form-field:hover {
+    box-shadow: 0px 0px 5px 2px var(--field-placeholder-color);
+}
+.form-field:focus {
+    --BG_COLOR: var(--field-placeholder-color);
+    box-shadow: none;
+}
+.form-field:focus::placeholder {
+    --COLOR: var(--field-bg-color);
+}
+.form-field:focus::selection {
+    --COLOR: var(--field-placeholder-color);
 }
 
 /* containers */
@@ -188,12 +225,13 @@ h1, h2, h3, h4, h5, h6, p, a, label, input, button, ::placeholder, body {
 
 .grid-container {
     display: grid;
+    align-items: center;
 }
 
 /* ------------ */
 
 .body {
-    background-color: var(--color-cold-lightest);
+    --bg-color: var(--color-cold-lightest);
     min-height: 100%;
 }
 
@@ -210,7 +248,7 @@ h1, h2, h3, h4, h5, h6, p, a, label, input, button, ::placeholder, body {
 
 [class|=main] {
     --padding: var(--gap-bigest);
-    background-color: var(--color-cold-light);
+    --bg-color: var(--color-cold-light);
     box-shadow: var(--color-cold-lighter) 5px 5px 5px;
 }
 
@@ -222,27 +260,26 @@ h1, h2, h3, h4, h5, h6, p, a, label, input, button, ::placeholder, body {
 
 .main-header {
     grid-template-columns: auto 1fr auto;
-    align-items: center;
     justify-content: space-between;
     justify-items: center;
 }
 
 .main-header > .logo {
-    fill: var(--COLOR);
-    width: calc(4 * var(--font-size));
+    fill:   var(--COLOR);
+    width:  calc(4 * var(--font-size));
 }
 
 .main-header .nav-list {
     grid-template-columns: repeat(3, auto);
 }
-.main-header .nav-link {
-    --font-size: var(--font-biger);
-    font-weight: 500;
+.main-header .nav .link {
+    --font-size:    var(--font-biger);
+    --font-weight:  var(--fw-medium);
     text-transform: uppercase;
 }
-.main-header .nav-link.checked {
-    --COLOR: var(--color-cold-darker);
-    text-decoration: none;
+.main-header .nav .link.checked {
+    --COLOR: var(--color);
+    text-decoration: underline;
 }
 
 /* main */
@@ -262,41 +299,13 @@ h1, h2, h3, h4, h5, h6, p, a, label, input, button, ::placeholder, body {
     grid-template-columns: repeat(2, 350px);
     justify-content: center;
 }
-.form-field {
-    outline: none;
-    border: none;
-    border-radius: var(--font-size);
-    padding: var(--btn-padding);
-    background-color: var(--color-cold-lighter);
-    transition-duration: var(--transition-duration);
-}
-.form-field::selection {
-    color: var(--color-cold-lighter);
-    background-color: var(--color-cold-dark);
-}
-.form-field::placeholder {
-    --color: var(--color-cold-lightest)
-}
-.form-field:hover {
-    box-shadow: 0px 0px 5px 2px var(--color-cold-lightest);
-}
-.form-field:focus {
-    background-color: var(--color-cold-lightest);
-    box-shadow: none;
-}
-.form-field:focus::placeholder {
-    --color: var(--color-cold-light)
-}
-.form-field:focus::selection {
-    color: var(--color-cold-lightest);
-}
 
 /* main footer */
 
 /* ------------ */
 
-/* notebooks */
-
 /* laptops */
+
+/* tablets */
 
 /* phones */
