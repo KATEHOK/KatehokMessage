@@ -41,8 +41,8 @@
     --font-smallest:    calc(var(--font-smaller)    - var(--font-step));
     --font-micro:       calc(var(--font-smallest)   - var(--font-step));
     --font-biger:       calc(var(--font-medium)     + var(--font-step));
-    --font-bigest:      calc(var(--font-biger)      + var(--font-step));
-    --font-giant:       calc(var(--font-bigest)     + var(--font-step));
+    --font-bigest:      calc(var(--font-biger)      + 2 * var(--font-step));
+    --font-giant:       calc(var(--font-bigest)     + 4 * var(--font-step));
 
     /* gap sizes */
     --gap-step:         5px;
@@ -62,6 +62,7 @@
 
     /* editable */
     
+    --transition-duration: .2s;
     --color:            var(--color-cold-dark);
     --font-size:        var(--font-medium);
     --letter-spacing:   2px;
@@ -89,11 +90,16 @@ img {
     display: block;
     width: 100%;
 }
-input, textarea, select, button {
+input, textarea, select, button, a {
     font: inherit;
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    font-size: var(--font-size);
 }
 /* inhetiable font styles */
-body {
+.body {
     font-family:    "Ubuntu", serif;
     font-weight:    400;
     font-style:     normal;
@@ -104,13 +110,40 @@ body {
 }
 
 /* common items */
-
+[class*=link], [class*=btn] {
+    --COLOR: var(--color);
+    color: var(--COLOR);
+    font-size: var(--font-size);
+    transition-duration: var(--transition-duration);
+}
 [class*=btn] {
+    --font-size: var(--font-biger);
+    --BORDER: 2px solid var(--color);
+    --BG_COLOR: transparent;
     cursor: default;
     user-select: none;
+    border: var(--BORDER);
+    padding: var(--gap-smallest) var(--gap-medium);
+    border-radius: var(--font-size);
+    background-color: var(--BG_COLOR);
 }
+[class*=link] {}
 @media (hover: hover) {
-    [class*=btn]:hover {}
+    [class*=btn]:hover {
+        --BG_COLOR: var(--color);
+        --COLOR: var(--color-cold-light);
+    }
+    [class*=link]:hover {
+        --COLOR: var(--color-cold-medium);
+        text-decoration: underline;
+    }
+}
+[class*=btn]:active {
+    transform: scale(0.95);
+}
+[class*=link]:active {
+    --COLOR: var(--color-cold-darker);
+    text-decoration: none;
 }
 
 /* containers */
@@ -120,18 +153,18 @@ body {
     border-radius: var(--padding);
 }
 
-[class$=grid-container] {
+.grid-container {
     display: grid;
 }
 
 /* ------------ */
 
-body {
+.body {
     background-color: var(--color-cold-lightest);
     min-height: 100%;
 }
 
-[class|=body] {
+.body-wrapper {
     --padding: var(--gap-giant);
     --gap: var(--gap-bigest);
     margin: 0 auto;
@@ -148,7 +181,31 @@ body {
     box-shadow: var(--color-cold-lighter) 5px 5px 5px;
 }
 
+[class|=main] > .item {
+    --padding: 0;
+}
+
 /* main header */
+
+.main-header {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.main-header > .logo {
+    fill: var(--COLOR);
+    width: calc(4 * var(--font-size));
+}
+
+.main-header .nav-list {
+    grid-template-columns: repeat(3, auto);
+}
+.main-header .nav-link {
+    --font-size: var(--font-biger);
+    text-transform: uppercase;
+}
 
 /* main */
 
@@ -158,6 +215,6 @@ body {
 
 /* notebooks */
 
-/* tablets */
+/* laptops */
 
 /* phones */
