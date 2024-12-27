@@ -297,10 +297,6 @@ a, button, input, textarea, select {
     box-shadow: var(--color-cold-lighter) 5px 5px 5px;
 }
 
-[class|=main] > .item {
-    --padding: 0;
-}
-
 /* main header */
 
 .main-header {
@@ -310,19 +306,24 @@ a, button, input, textarea, select {
 }
 
 .main-header > .logo {
+    --padding: 0;
     fill:   var(--COLOR);
     width:  calc(4 * var(--font-size));
+}
+
+.main-header > .nav {
+    --padding: 0;
 }
 
 .main-header .nav-list {
     grid-template-columns: repeat(3, auto);
 }
-.main-header .nav .link {
+.main-header > .nav .link {
     --font-size:    var(--font-biger);
     --font-weight:  var(--fw-medium);
     text-transform: uppercase;
 }
-.main-header .nav .link.checked {
+.main-header > .nav .link.checked {
     --COLOR: var(--color);
     text-decoration: underline;
 }
