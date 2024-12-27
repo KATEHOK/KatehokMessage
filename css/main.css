@@ -350,7 +350,7 @@ a, button, input, textarea, select {
 
 .main-footer {
     --font-size: var(--font-medium);
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(3, auto);
     justify-content: space-between;
     /* justify-items: center; */
 }
@@ -367,6 +367,29 @@ a, button, input, textarea, select {
 .site-theme .toggle-btn {
     --font-size: var(--font-medium);
     --items-padding: calc(var(--font-size) / 3) var(--font-size);
+}
+
+.copyright {
+    --padding: 0;
+}
+
+.references {
+    --padding: 0;
+    --gap: var(--gap-smaller);
+}
+.references .ref-list {
+    --gap: var(--gap-big);
+    grid-template-columns: auto auto;
+}
+.references .link {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-micro);
+    fill: var(--COLOR);
+}
+.references .icon {
+    width: calc(1.5 * var(--font-size));
+    height: calc(1.5 * var(--font-size));
 }
 
 /* ------------ */
