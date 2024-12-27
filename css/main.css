@@ -109,16 +109,16 @@
     margin: 0;
     box-sizing: border-box;
 }
-*, ::after, ::before, ::selection, ::placeholder {    
+*, ::after, ::before, ::selection, ::placeholder {
     --FONT_FAMILY:      var(--font-family);
     --FONT_WEIGHT:      var(--font-weight);
     --FONT_STYLE:       var(--font-style);
     --FONT_SIZE:        var(--font-size);
     --LINE_HEIGHT:      var(--line-height);
     --LETTER_SPACING:   var(--letter-spacing);
-    --BG_COLOR:         var(--bg-color);
     --COLOR:            var(--color);
-
+    --BG_COLOR:         var(--bg-color);
+    
     font-family:        var(--FONT_FAMILY);
     font-style:         var(--FONT_STYLE);
     color:              var(--COLOR);
