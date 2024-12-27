@@ -190,6 +190,9 @@ a, button, input, textarea {
     --field-bg-color: var(--color-cold-lighter);
     --field-placeholder-color: var(--color-cold-lightest);
 }
+.form-label-required::after {
+    content: "*";
+}
 .form-field {
     --bg-color: var(--field-bg-color);
     --padding: var(--btn-padding);

@@ -37,27 +37,32 @@
                 <form action="" id="profile-form" class="profile-info form grid-container">
                     <input type="hidden" name="csrf" value="csrf-token">
 
-                    <label for="profile-form-username">Username:&nbsp;</label>
+                    <label class="form-label-required" for="profile-form-username">
+                        Username</label>
                     <input
                         type="text"
                         name="username"
                         id="profile-form-username"
                         class="form-field item"
-                        value=""
+                        value="katehok"
                         placeholder="katehok"
+                        required
                     >
 
-                    <label for="profile-form-name">Full&nbsp;Name:&nbsp;</label>
+                    <label class="form-label-required" for="profile-form-name">
+                        Full&nbsp;Name</label>
                     <input
                         type="text"
                         name="name"
                         id="profile-form-name"
                         class="form-field item"
-                        value=""
+                        value="Katehok"
                         placeholder="Katehok"
+                        required
                     >
 
-                    <label for="profile-form-email">Email:&nbsp;</label>
+                    <label class="form-label-required" for="profile-form-email">
+                        Email</label>
                     <input
                         type="email"
                         name="email"
@@ -65,15 +70,16 @@
                         class="form-field item"
                         value="katehok@katehok.com"
                         placeholder="katehok@katehok.com"
+                        required
                     >
 
-                    <label for="profile-form-tel">Phone:&nbsp;</label>
+                    <label for="profile-form-tel">Phone</label>
                     <input
                         type="tel"
                         name="tel"
                         id="profile-form-tel"
                         class="form-field item"
-                        value="+7 (999) 999-99-99"
+                        value=""
                         placeholder="+7 (999) 999-99-99"
                     >
 
