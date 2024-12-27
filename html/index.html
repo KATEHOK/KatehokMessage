@@ -89,7 +89,31 @@
             </section>
         </main>
     
-        <footer class="main-footer grid-container"></footer>
+        <footer class="main-footer grid-container">
+            <section class="site-theme grid-container">
+                <header><h2 class="title">Site theme</h2></header>
+                <form class="site-theme-form toggle-btn grid-container">
+                    <input
+                        class="visually-hidden"
+                        type="radio"
+                        name="site-theme"
+                        id="light-theme"
+                        value="light"
+                        checked
+                    > 
+                    <label class="item first" for="light-theme">Light</label>
+
+                    <input
+                        class="visually-hidden"
+                        type="radio"
+                        name="site-theme"
+                        id="dark-theme"
+                        value="dark"
+                    >
+                    <label class="item last" for="dark-theme">Dark</label>
+                </form>
+            </section>
+        </footer>
 
     </div>
     

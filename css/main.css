@@ -80,6 +80,8 @@
     --line-height:      1.5;
 
     --bg-color:         transparent;
+    --shadow-color: var(--color-cold-lightest);
+    --outline-shadow-offsets: 0px 0px 5px 2px;
     --btn-padding: var(--gap-smallest) var(--gap-medium);
     --border: 2px solid var(--color);
     --transition-duration: .1s;
@@ -118,7 +120,7 @@
     --LETTER_SPACING:   var(--letter-spacing);
     --COLOR:            var(--color);
     --BG_COLOR:         var(--bg-color);
-    
+
     font-family:        var(--FONT_FAMILY);
     font-style:         var(--FONT_STYLE);
     color:              var(--COLOR);
@@ -146,7 +148,7 @@ img {
 a {
     text-decoration: none;
 }
-a, button, input, textarea {
+a, button, input, textarea, select {
     outline: none;
 }
 
@@ -160,18 +162,22 @@ a, button, input, textarea {
 }
 .btn {
     --font-size: var(--font-biger);
+    --padding: var(--btn-padding);
     cursor: default;
     user-select: none;
     text-transform: capitalize;
     text-align: center;
     border: var(--border);
-    padding: var(--btn-padding);
     border-radius: var(--font-size);
+}
+.btn:focus {
+    box-shadow: var(--outline-shadow-offsets) var(--shadow-color);
 }
 @media (hover: hover) {
     .btn:hover {
         --BG_COLOR: var(--color);
         --COLOR:    var(--bg-color);
+        box-shadow: none;
     }
     .link:hover {
         --COLOR:    var(--color-cold-lightest);
@@ -186,9 +192,45 @@ a, button, input, textarea {
     --COLOR:    var(--color-cold-darkest);
 }
 
+.toggle-btn {
+    /* можно переопределять извне */
+    --items: 2;
+    --font-size: var(--font-big);
+    --font-weight: var(--fw-medium);
+    --border-radius: var(--font-size);
+    --items-padding: var(--font-size) calc(2 * var(--font-size));
+    /* нельзя переопределять извне */
+    --gap: 0;
+    grid-template-columns: repeat(var(--items), auto);
+}
+.toggle-btn > .item {
+    --padding: var(--items-padding);
+    border: var(--border);
+    transition-duration: var(--transition-duration);
+    user-select: none;
+}
+.toggle-btn > .first {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+.toggle-btn > .last {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+.toggle-btn > .first ~ .item {
+    border-left: none;
+}
+.toggle-btn > .item:hover {
+    box-shadow: var(--outline-shadow-offsets) var(--shadow-color);
+}
+.toggle-btn > input:checked + .item {
+    --COLOR: var(--bg-color);
+    --BG_COLOR: var(--color);
+    box-shadow: none;
+}
+
 .form {
     --field-bg-color: var(--color-cold-lighter);
     --field-placeholder-color: var(--color-cold-lightest);
+    --shadow-color: var(--field-placeholder-color);
 }
 .form-label-required::after {
     content: "*";
@@ -206,7 +248,7 @@ a, button, input, textarea {
     --BG_COLOR: transparent;
 }
 .form-field:hover {
-    box-shadow: 0px 0px 5px 2px var(--field-placeholder-color);
+    box-shadow: var(--outline-shadow-offsets) var(--shadow-color);
 }
 .form-field:focus {
     --BG_COLOR: var(--field-placeholder-color);
@@ -223,7 +265,6 @@ a, button, input, textarea {
 
 [class$=container] {
     gap: var(--gap);
-    border-radius: var(--padding);
 }
 
 .grid-container {
@@ -252,6 +293,7 @@ a, button, input, textarea {
 [class|=main] {
     --padding: var(--gap-bigest);
     --bg-color: var(--color-cold-light);
+    border-radius: var(--padding);
     box-shadow: var(--color-cold-lighter) 5px 5px 5px;
 }
 
@@ -304,6 +346,27 @@ a, button, input, textarea {
 }
 
 /* main footer */
+
+.main-footer {
+    --font-size: var(--font-medium);
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    /* justify-items: center; */
+}
+
+.site-theme {
+    --padding: 0;
+    --gap: var(--gap-smaller);
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+.site-theme .title {
+    --font-weight: var(--fw-normal);
+}
+.site-theme .toggle-btn {
+    --font-size: var(--font-medium);
+    --items-padding: calc(var(--font-size) / 3) var(--font-size);
+}
 
 /* ------------ */
 
