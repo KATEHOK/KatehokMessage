@@ -4,34 +4,6 @@
 /* variables */
 html {
 
-    /* constants */
-
-    /* colors */
-    /* cold */
-    --color-cold-lightest:  rgb(183 237 255);
-    --color-cold-lighter:   rgb(97 214 253);
-    --color-cold-light:     rgb(0 191 255);
-    --color-cold-medium:    rgb(0 0 255);
-    --color-cold-dark:      rgb(0 0 136);
-    --color-cold-darker:    rgb(0 0 56);
-    --color-cold-darkest:   rgb(0 0 28);
-    /* warm */
-    --color-warm-lightest:  rgb(255 231 186);
-    --color-warm-lighter:   rgb(255 219 153);
-    --color-warm-light:     rgb(255 190 71);
-    --color-warm-medium:    rgb(255 166 0);
-    --color-warm-dark:      rgb(255 140 0);
-    --color-warm-darker:    rgb(180 99 0);
-    --color-warm-darkest:   rgb(121 66 0);
-    /* warning */
-    --color-warning-lightest:   rgb(255 201 201);
-    --color-warning-lighter:    rgb(255 167 167);
-    --color-warning-light:      rgb(252 77 77);
-    --color-warning-medium:     rgb(255 0 0);
-    --color-warning-dark:       rgb(140 0 0);
-    --color-warning-darker:     rgb(70 0 0);
-    --color-warning-darkest:    rgb(35 0 0);
-
     /* font sizes */
     --font-step:        4px;
     --font-medium:      16px;
@@ -68,34 +40,32 @@ html {
     --viewport-tablet:  1080px;
     --viewport-phone:   720px;
 
-    /* Variables can be changed */
-
-    /* font */
-    --PAGE_FONT_FAMILY:     "Ubuntu", serif;
-    --PAGE_FONT_STYLE:      normal;
-    --PAGE_LINE_HEIGHT:     1.5;
-    --PAGE_LETTER_SPACING:  2px;
-    --PAGE_FONT_WEIGHT:     var(--fw-normal);
-    --PAGE_FONT_SIZE:       var(--font-big);
-    --PAGE_COLOR:           var(--color-cold-dark);
+    /* light color theme */
     
+    --color-lightest:  #cfdee7;
+    --color-light:     #b1c8f3;
+    --color-lighter:   #92b4f4;
+    --color-medium:    #5e7ce2;
+    --color-darker:    #4472ca;
+    --color-dark:      #0a366e;
+    --color-darkest:   #062042;
+
     --SELECTION_BG_COLOR:   var(--PAGE_COLOR);
     --SELECTION_COLOR:      var(--MAIN_BLOCK_BG_COLOR);
+    
+    /* font */
+    --PAGE_COLOR:   var(--color-dark);
 
     /* block */
-    --PAGE_TRANSITION_DURATION: .1s;
-    --PAGE_SHADOW_OFFSET:       0px 0px 5px 2px;
-    --PAGE_BORDER:              2px solid var(--PAGE_COLOR);
-    --PAGE_SHADOW_COLOR:        var(--color-cold-lightest);
-    --PAGE_BG_COLOR:            var(--color-cold-lightest);
-    --MAIN_BLOCK_BG_COLOR:      var(--color-cold-light);
-    --MAIN_BLOCK_SHADOW_COLOR:  var(--color-cold-lighter);
-    --MAIN_BLOCK_SHADOW:        var(--MAIN_BLOCK_SHADOW_COLOR) 5px 5px 5px;
+    --PAGE_SHADOW_COLOR:        var(--color-dark);
+    --PAGE_BG_COLOR:            var(--color-lightest);
+    --MAIN_BLOCK_BG_COLOR:      var(--color-lighter);
+    --MAIN_BLOCK_SHADOW_COLOR:  var(--color-light);
 
     /* link */
     --LINK_COLOR:           var(--PAGE_COLOR);
-    --LINK_HOVERED_COLOR:   var(--color-cold-lightest);
-    --LINK_ACTIVED_COLOR:   var(--color-cold-darkest);
+    --LINK_HOVERED_COLOR:   var(--color-darker);
+    --LINK_ACTIVED_COLOR:   var(--color-darkest);
 
     /* btn */
     --BTN_BG_COLOR:                 transparent;
@@ -104,22 +74,42 @@ html {
     --BTN_HOVERED_BG_COLOR:         var(--PAGE_COLOR);
     --BTN_ACTIVED_COLOR:            var(--BTN_HOVERED_COLOR);
     --BTN_ACTIVED_BG_COLOR:         var(--BTN_HOVERED_BG_COLOR);
-    --BTN_ACTIVED_TRANSFORM:        scale(0.95);
-    --BTN_PADDING:                  0.5em 1em;
-    --BTN_FONT_SIZE:                var(--font-big);
-    --BTN_BORDER_RADIUS:            1.5em;
-    --TOGGLE_BTN_ITEMS:             2;
     --TOGGLE_BTN_COLOR:             var(--BTN_COLOR);
     --TOGGLE_BTN_BG_COLOR:          var(--BTN_BG_COLOR);
     --TOGGLE_BTN_CHECKED_COLOR:     var(--MAIN_BLOCK_BG_COLOR);
     --TOGGLE_BTN_CHECKED_BG_COLOR:  var(--PAGE_COLOR);
 
     /* form */
-    --FORM_FIELD_PLACEHOLDER_COLOR:         var(--color-cold-lightest);
-    --FORM_FIELD_PLACEHOLDER_FOCUSED_COLOR: var(--color-cold-lighter);
+    --FORM_FIELD_PLACEHOLDER_COLOR:         var(--color-light);
+    --FORM_FIELD_PLACEHOLDER_FOCUSED_COLOR: var(--color-medium);
+    --FORM_FIELD_BG_COLOR:                  var(--color-medium);
+    --FORM_FIELD_FOCUSED_BG_COLOR:          var(--color-light);
     --FORM_FIELD_COLOR:                     var(--PAGE_COLOR);
-    --FORM_FIELD_BG_COLOR:                  var(--color-cold-lighter);
-    --FORM_FIELD_FOCUSED_BG_COLOR:          var(--color-cold-lightest);
+
+    /* other */
+
+    /* font */
+    --PAGE_FONT_FAMILY:     "Ubuntu", serif;
+    --PAGE_FONT_STYLE:      normal;
+    --PAGE_LINE_HEIGHT:     1.5;
+    --PAGE_LETTER_SPACING:  2px;
+    --PAGE_FONT_WEIGHT:     var(--fw-normal);
+    --PAGE_FONT_SIZE:       var(--font-big);
+
+    /* block */
+    --PAGE_TRANSITION_DURATION: .1s;
+    --PAGE_SHADOW_OFFSET:       0px 0px 5px 2px;
+    --PAGE_BORDER:              2px solid var(--PAGE_COLOR);
+    --MAIN_BLOCK_SHADOW:        var(--MAIN_BLOCK_SHADOW_COLOR) 5px 5px 5px;
+
+    /* btn */
+    --BTN_ACTIVED_TRANSFORM:        scale(0.95);
+    --BTN_PADDING:                  0.5em 1em;
+    --BTN_FONT_SIZE:                var(--font-big);
+    --BTN_BORDER_RADIUS:            1.5em;
+    --TOGGLE_BTN_ITEMS:             2;
+
+    /* form */
     --FORM_FIELD_PADDING:                   var(--BTN_PADDING);
     --FORM_FIELD_BORDER_RADIUS:             var(--BTN_BORDER_RADIUS);
 
@@ -132,26 +122,49 @@ html {
     line-height:        var(--PAGE_LINE_HEIGHT);
     letter-spacing:     var(--PAGE_LETTER_SPACING);
 }
-/* Dark color theme */
 html.dark {
+    /* Dark color theme */
+
+    --color-lightest:  #D4D4D8;
+    --color-light:     #A1A5BE;
+    --color-lighter:   #757EA4;
+    --color-medium:    #505D89;
+    --color-darker:    #32436F;
+    --color-dark:      #1A2D55;
+    --color-darkest:   #0A1C3A;
+
     /* font */
-    --PAGE_COLOR:   var(--color-cold-light);
+    --PAGE_COLOR:   var(--color-light);
 
     /* block */
-    --PAGE_SHADOW_COLOR:    var(--color-cold-dark);
-    --PAGE_BG_COLOR:        var(--color-cold-dark);
-    --MAIN_BLOCK_BG_COLOR:  var(--color-cold-darkest);
-    --MAIN_BLOCK_SHADOW:    none;
+    --PAGE_SHADOW_COLOR:        var(--color-lighter);
+    --PAGE_BG_COLOR:            var(--color-medium);
+    --MAIN_BLOCK_BG_COLOR:      var(--color-dark);
+    --MAIN_BLOCK_SHADOW_COLOR:  var(--color-darkest);
 
     /* link */
-    --LINK_HOVERED_COLOR:   var(--color-cold-lightest);
-    --LINK_ACTIVED_COLOR:   var(--color-cold-dark);
+    --LINK_COLOR:           var(--PAGE_COLOR);
+    --LINK_HOVERED_COLOR:   var(--color-lightest);
+    --LINK_ACTIVED_COLOR:   var(--color-lighter);
+
+    /* btn */
+    --BTN_BG_COLOR:                 transparent;
+    --BTN_COLOR:                    var(--PAGE_COLOR);
+    --BTN_HOVERED_COLOR:            var(--MAIN_BLOCK_BG_COLOR);
+    --BTN_HOVERED_BG_COLOR:         var(--PAGE_COLOR);
+    --BTN_ACTIVED_COLOR:            var(--BTN_HOVERED_COLOR);
+    --BTN_ACTIVED_BG_COLOR:         var(--BTN_HOVERED_BG_COLOR);
+    --TOGGLE_BTN_COLOR:             var(--BTN_COLOR);
+    --TOGGLE_BTN_BG_COLOR:          var(--BTN_BG_COLOR);
+    --TOGGLE_BTN_CHECKED_COLOR:     var(--MAIN_BLOCK_BG_COLOR);
+    --TOGGLE_BTN_CHECKED_BG_COLOR:  var(--PAGE_COLOR);
 
     /* form */
-    --FORM_FIELD_PLACEHOLDER_COLOR:         var(--color-cold-dark);
-    --FORM_FIELD_PLACEHOLDER_FOCUSED_COLOR: var(--color-cold-darkest);
-    --FORM_FIELD_BG_COLOR:                  var(--color-cold-darker);
-    --FORM_FIELD_FOCUSED_BG_COLOR:          var(--color-cold-dark);
+    --FORM_FIELD_PLACEHOLDER_COLOR:         var(--color-medium);
+    --FORM_FIELD_PLACEHOLDER_FOCUSED_COLOR: var(--color-darkest);
+    --FORM_FIELD_BG_COLOR:                  var(--color-darkest);
+    --FORM_FIELD_FOCUSED_BG_COLOR:          var(--color-medium);
+    --FORM_FIELD_COLOR:                     var(--PAGE_COLOR);
 }
 
 /* utils */
